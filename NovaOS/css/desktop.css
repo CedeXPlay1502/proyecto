@@ -1,0 +1,78 @@
+/* ===============================
+   ESCRITORIO
+================================== */
+
+#desktop {
+
+    width: 100%;
+    height: calc(100vh - 50px);
+
+    background: linear-gradient(
+        180deg,
+        #3a7bd5,
+        #00d2ff
+    );
+
+    position: relative;
+
+}
+
+/* ===============================
+   CONTENEDOR DE ICONOS
+================================== */
+
+#desktop-icons {
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    padding: 20px;
+
+}
+
+/* ===============================
+   ICONO
+================================== */
+
+.desktop-icon {
+
+    width: 90px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    color: white;
+
+    cursor: pointer;
+
+    border-radius: 8px;
+
+    padding: 8px;
+
+    transition: background .2s;
+
+}
+
+.desktop-icon:hover {
+
+    background: rgba(255,255,255,.2);
+
+}
+
+.desktop-icon .icon {
+
+    font-size: 42px;
+
+}
+
+.desktop-icon span {
+
+    margin-top: 8px;
+
+    text-align: center;
+
+    font-size: 14px;
+
+}

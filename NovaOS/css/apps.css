@@ -1,0 +1,69 @@
+/* =============================
+          MENÚ INICIO
+   ============================= */
+
+#start-menu{
+
+    position: absolute;
+
+    bottom: 60px;
+
+    left: 20px;
+
+    width: 260px;
+
+    background: #252525;
+
+    color: white;
+
+    border-radius: 10px;
+
+    padding: 15px;
+
+    box-shadow: 0 0 15px rgba(0, 0, 0, .4);
+
+}   
+
+/* Clase para ocultar elementos */
+
+.hidden{
+
+    display: none;
+
+}
+
+#start-menu h2{
+
+    margin-bottom: 15px;
+
+}
+
+.app-button{
+
+    width: 100%;
+
+    border: none;
+
+    background: #3b3b3b;
+
+    color: white;
+
+    padding: 12px;
+
+    margin-bottom: 10px;
+
+    border-radius: 6px;
+
+    cursor:pointer;
+
+    text-align: left;
+
+    transition: .2s;
+
+}
+
+.app-button:hover{
+
+    background: #4f4f4f;
+
+}

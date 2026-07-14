@@ -1,0 +1,37 @@
+#taskbar{
+
+    height:50px;
+
+    background:#2d2d2d;
+
+    color:white;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 20px;
+
+}
+
+#start-button{
+
+    background:#1565c0;
+
+    padding:8px 15px;
+
+    border-radius:5px;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+#start-button:hover{
+
+    background:#1e88e5;
+
+}
