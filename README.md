@@ -1,2 +1,2 @@
-# proyecto
-proyecto de prueba
+# NOVAOS
+NovaOS es un sistema operativo web desarrollado como un proyecto de programación que busca recrear la experiencia de un escritorio de computadora directamente en el navegador. Incluye elementos como un escritorio, barra de tareas, ventanas, menú de aplicaciones e interacción mediante HTML, CSS y JavaScript. Su objetivo es ofrecer una interfaz moderna, intuitiva y funcional, además de servir como práctica para aprender desarrollo web y programación orientada a interfaces gráficas.
