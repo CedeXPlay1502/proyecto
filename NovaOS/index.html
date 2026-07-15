@@ -2,12 +2,13 @@
 <html lang="es">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>NovaOS</title>
 
-    <!-- Hoja de estilos principal -->
+    <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/apps.css">
     <link rel="stylesheet" href="css/desktop.css">
@@ -18,60 +19,51 @@
 
 <body>
 
-    <!-- =================================
-                 ESCRITORIO
-         ================================= -->
+    <!-- ======================================
+         ESCRITORIO
+    ======================================= -->
 
     <main id="desktop">
 
-    <div id="start-menu" class="hidden">
+        <!-- MENÚ INICIO -->
+        <div id="start-menu" class="hidden">
 
-        <h2>NovaOS</h2>
+            <h2>NovaOS</h2>
 
-        <button class="app-button">📄 Bloc de notas</button>
+            <button class="app-button">📄 Bloc de notas</button>
+            <button class="app-button">🧮 Calculadora</button>
+            <button class="app-button">💻 Terminal</button>
+            <button class="app-button">⚙ Configuración</button>
 
-        <button class="app-button">🧮 Calculadora</button>
+        </div>
 
-        <button class="app-button">💻 Terminal</button>
+        <!-- CONTENEDOR DE VENTANAS -->
+        <div id="windows-container"></div>
 
-        <button class="app-button">⚙ Configuración</button>
+    </main>
 
-    </div>
-
-    <!-- Contenedor donde vivirán todas las ventanas -->
-<div id="windows-container"></div>
-
-</main>
-
-    <!-- ==================================
-                BARRA DE TAREAS
-         ================================== -->
+    <!-- ======================================
+         BARRA DE TAREAS
+    ======================================= -->
 
     <footer id="taskbar">
 
-        <div id="start-button">
-
+        <button id="start-button">
             Inicio
+        </button>
 
-        </div>
-
-        <div id="taskbar-apps">
-
-
-
-        </div>
+        <div id="taskbar-apps"></div>
 
         <div id="clock">
-
             00:00
-
         </div>
 
     </footer>
 
+    <!-- JavaScript -->
+    <script src="js/windowManager.js"></script>
     <script src="js/taskbar.js"></script>
     <script src="js/desktop.js"></script>
-    <script src="js/windowManager.js"></script>
     <script src="js/main.js"></script>
 
 </body>

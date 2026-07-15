@@ -1,6 +1,12 @@
-// ==============================
-//   NOVAOS         
-//   Archivo principal
-// ==============================
+// ======================================
+// NOVA OS
+// MAIN
+// ======================================
 
-console.log("NovaOS iniciado correctamente.");
+document.addEventListener("DOMContentLoaded", () => {
+
+    console.log("====================================");
+    console.log("      NovaOS iniciado correctamente");
+    console.log("====================================");
+
+});

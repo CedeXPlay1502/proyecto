@@ -19,13 +19,40 @@ setInterval(actualizarReloj, 1000);
 
 actualizarReloj();
 
-// ================================
-//      MENÚ INICIO
-// ================================
+// ======================================
+// NOVA OS
+// TASKBAR
+// ======================================
 
 const startButton = document.getElementById("start-button");
 const startMenu = document.getElementById("start-menu");
 
-startButton.addEventListener("click", () => {
+// ==========================
+// MENÚ INICIO
+// ==========================
+
+startButton.addEventListener("click", (e) => {
+
+    e.stopPropagation();
+
     startMenu.classList.toggle("hidden");
+
+});
+
+// ==========================
+// CERRAR MENÚ AL HACER CLIC
+// FUERA DE ÉL
+// ==========================
+
+document.addEventListener("click", (e) => {
+
+    if (
+        !startMenu.contains(e.target) &&
+        !startButton.contains(e.target)
+    ) {
+
+        startMenu.classList.add("hidden");
+
+    }
+
 });

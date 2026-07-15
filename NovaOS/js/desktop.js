@@ -1,40 +1,46 @@
-// =============================
-// -   NOVAOS DESKTOP          -
-// =============================
-
+// ======================================
+// NOVA OS
+// DESKTOP
+// ======================================
 
 const aplicaciones = [
     {
-    id: "notes",
-    nombre: "Bloc de notas",
-    icono: "📄"
+        id: "notes",
+        nombre: "Bloc de notas",
+        icono: "📄"
     },
     {
-    id: "calculator",
-    nombre: "Calculadora",
-    icono: "🧮"
+        id: "calculator",
+        nombre: "Calculadora",
+        icono: "🧮"
     },
     {
-    id: "terminal",
-    nombre: "Terminal",
-    icono: "💻"
+        id: "terminal",
+        nombre: "Terminal",
+        icono: "💻"
     },
     {
-    id: "trash",
-    nombre: "Papelera",
-    icono: "🗑️"
+        id: "trash",
+        nombre: "Papelera",
+        icono: "🗑️"
     }
 ];
 
-function cargarEscritorio(){
+// ======================================
+// CARGAR ESCRITORIO
+// ======================================
+
+function cargarEscritorio() {
 
     const desktop = document.getElementById("desktop");
+
+    desktop.innerHTML = "";
 
     aplicaciones.forEach(app => {
 
         const icono = document.createElement("div");
 
-        icono.classList.add("desktop-icon");
+        icono.className = "desktop-icon";
         icono.dataset.app = app.id;
 
         icono.innerHTML = `
@@ -43,9 +49,7 @@ function cargarEscritorio(){
         `;
 
         icono.addEventListener("dblclick", () => {
-
             abrirAplicacion(app);
-
         });
 
         desktop.appendChild(icono);
@@ -54,7 +58,9 @@ function cargarEscritorio(){
 
 }
 
-cargarEscritorio();
+// ======================================
+// ABRIR APLICACIONES
+// ======================================
 
 function abrirAplicacion(app) {
 
@@ -65,17 +71,18 @@ function abrirAplicacion(app) {
             windowManager.crearVentana(
                 "📄 Bloc de notas",
                 `
-                    <textarea
-                        style="
-                            width:100%;
-                            height:250px;
-                            resize:none;
-                            border:none;
-                            outline:none;
-                            font-size:16px;
-                        "
-                        placeholder="Escribe aquí..."
-                    ></textarea>
+                <textarea
+                    style="
+                        width:100%;
+                        height:250px;
+                        resize:none;
+                        border:none;
+                        outline:none;
+                        font-size:16px;
+                        font-family:Arial, sans-serif;
+                    "
+                    placeholder="Escribe aquí..."
+                ></textarea>
                 `
             );
 
@@ -85,7 +92,10 @@ function abrirAplicacion(app) {
 
             windowManager.crearVentana(
                 "🧮 Calculadora",
-                "<h2>Calculadora en construcción</h2>"
+                `
+                <h2>Calculadora</h2>
+                <p>🚧 Próximamente...</p>
+                `
             );
 
             break;
@@ -94,7 +104,18 @@ function abrirAplicacion(app) {
 
             windowManager.crearVentana(
                 "💻 Terminal",
-                "<p>Bienvenido a NovaOS Terminal</p>"
+                `
+                <div style="
+                    background:black;
+                    color:#00ff00;
+                    padding:10px;
+                    height:250px;
+                    font-family:monospace;
+                ">
+                    <p>NovaOS Terminal v0.1</p>
+                    <p>Escribe "help" próximamente...</p>
+                </div>
+                `
             );
 
             break;
@@ -102,11 +123,28 @@ function abrirAplicacion(app) {
         case "trash":
 
             windowManager.crearVentana(
-                "🗑 Papelera",
-                "<p>La papelera está vacía.</p>"
+                "🗑️ Papelera",
+                `
+                <h3>Papelera</h3>
+                <p>La papelera está vacía.</p>
+                `
             );
 
             break;
+
+        default:
+
+            windowManager.crearVentana(
+                "Aplicación",
+                "<p>Aplicación no encontrada.</p>"
+            );
+
     }
 
 }
+
+// ======================================
+// INICIAR ESCRITORIO
+// ======================================
+
+cargarEscritorio();

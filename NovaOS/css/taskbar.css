@@ -1,37 +1,101 @@
+/* ======================================
+   NOVA OS
+   TASKBAR
+====================================== */
+
 #taskbar{
 
-    height:50px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
 
-    background:#2d2d2d;
+    width: 100%;
+    height: 48px;
 
-    color:white;
+    background: #2d2d2d;
 
-    display:flex;
+    display: flex;
+    align-items: center;
 
-    justify-content:space-between;
+    padding: 0 10px;
 
-    align-items:center;
+    box-sizing: border-box;
 
-    padding:0 20px;
+    z-index: 9999;
 
 }
 
 #start-button{
 
-    background:#1565c0;
+    width: 80px;
+    height: 36px;
 
-    padding:8px 15px;
+    border: none;
+    border-radius: 6px;
 
-    border-radius:5px;
+    background: #1565c0;
+    color: white;
 
-    cursor:pointer;
+    cursor: pointer;
 
-    transition:.2s;
+    font-size: 15px;
+    font-weight: bold;
 
 }
 
 #start-button:hover{
 
-    background:#1e88e5;
+    background: #1976d2;
+
+}
+
+#taskbar-apps{
+
+    flex: 1;
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-left: 12px;
+
+}
+
+.taskbar-app{
+
+    height: 34px;
+
+    padding: 0 15px;
+
+    border: none;
+    border-radius: 6px;
+
+    background: #4b4b4b;
+    color: white;
+
+    cursor: pointer;
+
+    transition: .2s;
+
+    white-space: nowrap;
+
+}
+
+.taskbar-app:hover{
+
+    background: #666;
+
+}
+
+#clock{
+
+    color: white;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    margin-left: auto;
 
 }
