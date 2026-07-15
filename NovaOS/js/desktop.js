@@ -32,7 +32,7 @@ const aplicaciones = [
 
 function cargarEscritorio() {
 
-    const desktop = document.getElementById("desktop");
+    const desktop = document.getElementById("desktop-icons");
 
     desktop.innerHTML = "";
 
@@ -147,4 +147,4 @@ function abrirAplicacion(app) {
 // INICIAR ESCRITORIO
 // ======================================
 
-cargarEscritorio();
+// cargarEscritorio();

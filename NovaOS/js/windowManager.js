@@ -1,31 +1,37 @@
 // ======================================
 // NOVA OS
-// WINDOW MANAGER V2
+// WINDOW MANAGER
 // ======================================
 
 let zIndexActual = 100;
 
 class WindowManager {
 
-    constructor() {
-
-        this.windowsContainer = document.getElementById("windows-container");
-        this.taskbarApps = document.getElementById("taskbar-apps");
-
-    }
-
     crearVentana(titulo, contenido) {
 
-        // -----------------------------
+        // Obtener los contenedores en tiempo real
+        const windowsContainer = document.getElementById("windows-container");
+        const taskbarApps = document.getElementById("taskbar-apps");
+
+        if (!windowsContainer) {
+            console.error("No se encontró #windows-container");
+            return;
+        }
+
+        if (!taskbarApps) {
+            console.error("No se encontró #taskbar-apps");
+            return;
+        }
+
+        // ===============================
         // Crear ventana
-        // -----------------------------
+        // ===============================
 
         const ventana = document.createElement("div");
+
         ventana.className = "window";
-
-        ventana.style.left = `${100 + Math.random()*150}px`;
-        ventana.style.top = `${80 + Math.random()*120}px`;
-
+        ventana.style.left = `${100 + Math.random() * 150}px`;
+        ventana.style.top = `${80 + Math.random() * 120}px`;
         ventana.style.zIndex = ++zIndexActual;
 
         ventana.innerHTML = `
@@ -49,45 +55,35 @@ class WindowManager {
             </div>
         `;
 
-        this.windowsContainer.appendChild(ventana);
+        windowsContainer.appendChild(ventana);
 
-        // -----------------------------
-        // Crear botón de barra
-        // -----------------------------
+        // ===============================
+        // Botón de la barra de tareas
+        // ===============================
 
         const taskButton = document.createElement("button");
 
         taskButton.className = "taskbar-app";
         taskButton.textContent = titulo;
 
-        this.taskbarApps.appendChild(taskButton);
+        taskbarApps.appendChild(taskButton);
 
-        // -----------------------------
-        // Obtener controles
-        // -----------------------------
+        // ===============================
+        // Referencias
+        // ===============================
 
         const header = ventana.querySelector(".window-header");
-
-        const botonCerrar =
-            ventana.querySelector(".close-button");
-
-        const botonMinimizar =
-            ventana.querySelector(".minimize-button");
-
-        // -----------------------------
-        // Variables
-        // -----------------------------
+        const botonCerrar = ventana.querySelector(".close-button");
+        const botonMinimizar = ventana.querySelector(".minimize-button");
 
         let moviendo = false;
-
         let offsetX = 0;
         let offsetY = 0;
-
         let minimizada = false;
 
-        // -----------------------------
+        // ===============================
         // Activar ventana
-        // -----------------------------
+        // ===============================
 
         const activarVentana = () => {
 
@@ -105,41 +101,38 @@ class WindowManager {
 
         ventana.addEventListener("mousedown", activarVentana);
 
-        // -----------------------------
+        // ===============================
         // Minimizar
-        // -----------------------------
+        // ===============================
 
-        botonMinimizar.addEventListener("click",(e)=>{
+        botonMinimizar.addEventListener("click", (e) => {
 
             e.stopPropagation();
 
-            ventana.style.display="none";
-
-            minimizada=true;
+            ventana.style.display = "none";
+            minimizada = true;
 
             taskButton.classList.remove("active");
 
         });
 
-        // -----------------------------
+        // ===============================
         // Restaurar
-        // -----------------------------
+        // ===============================
 
-        taskButton.addEventListener("click",()=>{
+        taskButton.addEventListener("click", () => {
 
-            if(minimizada){
+            if (minimizada) {
 
-                ventana.style.display="block";
-
-                minimizada=false;
+                ventana.style.display = "block";
+                minimizada = false;
 
                 activarVentana();
 
-            }else{
+            } else {
 
-                ventana.style.display="none";
-
-                minimizada=true;
+                ventana.style.display = "none";
+                minimizada = true;
 
                 taskButton.classList.remove("active");
 
@@ -147,37 +140,34 @@ class WindowManager {
 
         });
 
-        // -----------------------------
+        // ===============================
         // Cerrar
-        // -----------------------------
+        // ===============================
 
-        botonCerrar.addEventListener("click",(e)=>{
+        botonCerrar.addEventListener("click", (e) => {
 
             e.stopPropagation();
 
-            taskButton.remove();
-
             ventana.remove();
+            taskButton.remove();
 
         });
 
-        // -----------------------------
-        // Arrastrar
-        // -----------------------------
+        // ===============================
+        // Arrastrar ventana
+        // ===============================
 
-        header.addEventListener("mousedown",(e)=>{
+        header.addEventListener("mousedown", (e) => {
 
             activarVentana();
 
-            moviendo=true;
+            moviendo = true;
 
-            offsetX=e.clientX-ventana.offsetLeft;
-
-            offsetY=e.clientY-ventana.offsetTop;
+            offsetX = e.clientX - ventana.offsetLeft;
+            offsetY = e.clientY - ventana.offsetTop;
 
         });
 
-                // Mientras mueve el mouse
         document.addEventListener("mousemove", (e) => {
 
             if (!moviendo) return;
@@ -187,7 +177,6 @@ class WindowManager {
 
         });
 
-        // Soltar la ventana
         document.addEventListener("mouseup", () => {
 
             moviendo = false;
@@ -198,5 +187,5 @@ class WindowManager {
 
 }
 
-// Crear una única instancia
+// Instancia global
 const windowManager = new WindowManager();

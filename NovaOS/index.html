@@ -8,59 +8,40 @@
 
     <title>NovaOS</title>
 
-    <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/apps.css">
     <link rel="stylesheet" href="css/desktop.css">
-    <link rel="stylesheet" href="css/taskbar.css">
     <link rel="stylesheet" href="css/windows.css">
+    <link rel="stylesheet" href="css/taskbar.css">
 
 </head>
 
 <body>
 
-    <!-- ======================================
-         ESCRITORIO
-    ======================================= -->
-
+    <!-- Escritorio -->
     <main id="desktop">
 
-        <!-- MENÚ INICIO -->
-        <div id="start-menu" class="hidden">
+        <!-- Iconos del escritorio -->
+        <div id="desktop-icons"></div>
 
-            <h2>NovaOS</h2>
-
-            <button class="app-button">📄 Bloc de notas</button>
-            <button class="app-button">🧮 Calculadora</button>
-            <button class="app-button">💻 Terminal</button>
-            <button class="app-button">⚙ Configuración</button>
-
-        </div>
-
-        <!-- CONTENEDOR DE VENTANAS -->
+        <!-- Aquí se agregarán todas las ventanas -->
         <div id="windows-container"></div>
 
     </main>
 
-    <!-- ======================================
-         BARRA DE TAREAS
-    ======================================= -->
-
+    <!-- Barra de tareas -->
     <footer id="taskbar">
 
         <button id="start-button">
-            Inicio
+            🚀 Nova
         </button>
 
         <div id="taskbar-apps"></div>
 
-        <div id="clock">
-            00:00
-        </div>
+        <div id="clock"></div>
 
     </footer>
 
-    <!-- JavaScript -->
+    <!-- Scripts -->
     <script src="js/windowManager.js"></script>
     <script src="js/taskbar.js"></script>
     <script src="js/desktop.js"></script>
